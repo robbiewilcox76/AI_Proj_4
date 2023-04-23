@@ -1,3 +1,9 @@
+#how this works:
+#1. reads the training data, calculates the probability of a pixel being present for each type of image, and stores this probability in a nxm array where n is the number of different types of images(10 digits, face or no face, etc.) and m is the number of pixels in the picture.
+#2. tests the data against the test set
+#3. if the program is less than 72% accurate, the array randomly multiplies values in the array by .92 with smaller entries in the arrays being more likely to be multiplied. 
+#4. the new array is then tested against the testing data, and step 3 is repeated while keeping the array with the largest accuracy.
+#5. once the array has an accuracy above 72%, the validation data is used to test the training data. 
 class ml:
     def readnextimage(file):
         n=file.readline()
