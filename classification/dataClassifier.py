@@ -315,8 +315,12 @@ def runClassifier(args, options):
   testData = map(featureFunction, rawTestData)
   
   # Conduct training and testing
+  import time
   print "Training..."
+  start = time.time()
   classifier.train(trainingData, trainingLabels, validationData, validationLabels)
+  end = time.time()
+  print("Training time {}".format(end - start))
   print "Validating..."
   guesses = classifier.classify(validationData)
   correct = [guesses[i] == validationLabels[i] for i in range(len(validationLabels))].count(True)
