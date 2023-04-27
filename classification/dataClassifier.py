@@ -384,13 +384,13 @@ def sampling(args, options):
   
   # do iterations for accuracy and mean
   accuracy = []
-  percentage = [.1, .2, .3, .4, .5, .6, .7, .8, .9, 1]
-  
+  percentage = [.1, .2, .3, .4, .5, .6, .7, .8, .9, 1] 
+
   import time
   import random
   import math
   start = time.time()
-  iterations = 1
+  iterations = 5
   for data_percentage in percentage:
     print "Sampling {} iterations on {}%...".format(iterations, data_percentage * 100)
     accuracy = []
@@ -399,30 +399,30 @@ def sampling(args, options):
     # and then access training data through trainingData[indices[i]]
     numBatch = int(math.floor(numTraining * data_percentage))
     print("numBatch is {}".format(numBatch))
-    indices = list(range(numBatch))
-    random.shuffle(indices)
-    
-    trainingBatchData = []
-    trainingBatchLabels = []
-    
-    for i in range(numBatch):
-      trainingBatchData.append(trainingData[indices[i]])
-      trainingBatchLabels.append(trainingLabels[indices[i]])
-      
-    
+    allIndices = list(range(numTraining))
+
     for iteration in range(iterations):
       print "Training #{} iteration".format(iteration)
+      
+      indices = random.sample(allIndices, numBatch)
+      trainingBatchData = []
+      trainingBatchLabels = []
+    
+      for i in range(numBatch):
+        trainingBatchData.append(trainingData[indices[i]])
+        trainingBatchLabels.append(trainingLabels[indices[i]])
+        
       classifier.train(trainingBatchData, trainingBatchLabels, validationData, validationLabels)
       # print "Validating..."
       guesses = classifier.classify(validationData)
-      correct = [guesses[i] == validationLabels[i] for i in range(len(validationLabels))].count(True)
-      print str(correct), ("correct out of " + str(len(validationLabels)) + " (%.1f%%).") % (100.0 * correct / len(validationLabels))
+      # correct = [guesses[i] == validationLabels[i] for i in range(len(validationLabels))].count(True)
+      # print str(correct), ("correct out of " + str(len(validationLabels)) + " (%.1f%%).") % (100.0 * correct / len(validationLabels))
       # print "Testing..."
       guesses = classifier.classify(testData)
       correct = [guesses[i] == testLabels[i] for i in range(len(testLabels))].count(True)
       # record accuracy
       accuracy.append(correct / len(testLabels))
-      # print str(correct), ("correct out of " + str(len(testLabels)) + " (%.1f%%).") % (100.0 * correct / len(testLabels))
+      print str(correct), ("correct out of " + str(len(testLabels)) + " (%.1f%%).") % (100.0 * correct / len(testLabels))
       # analysis(classifier, guesses, testLabels, testData, rawTestData, printImage)
       
       # do odds ratio computation if specified at command line
@@ -445,8 +445,9 @@ def sampling(args, options):
     # extract mean & standard deviation
     mean = sum(accuracy) / len(accuracy)
     stdev = math.sqrt(sum(abs(x - mean)**2 for x in accuracy) / len(accuracy))
-    print "Mean Accuracy of {}%: {}".format(data_percentage * 100, mean)
-    print "Standard Deviation of {}%: {}".format(data_percentage * 100, stdev)
+    print("Mean Accuracy of {}%: {}".format(data_percentage * 100, mean))
+    print("Standard Deviation of {}%: {}".format(data_percentage * 100, stdev))
+    print("\n\n")
 
 
   end = time.time()
