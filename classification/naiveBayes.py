@@ -118,12 +118,17 @@ class NaiveBayesClassifier(classificationMethod.ClassificationMethod):
     self.legalLabels.
     """
 
+    # print(self.trainingLabelCounter)
     logJoint = util.Counter()
     for lbl in self.legalLabels:
       sum = 0
       for tuple in datum:
         sum += math.log(self.probs[lbl][tuple][datum[tuple]])
-      sum += math.log(self.trainingLabelCounter[lbl])
+      # print("label is: ", lbl, self.trainingLabelCounter[lbl])
+      if (self.trainingLabelCounter[lbl] == 0):
+        sum += math.log(0.001)
+      else:
+        sum += math.log(self.trainingLabelCounter[lbl])
       logJoint[lbl] = sum
     
     "*** YOUR CODE HERE ***"
