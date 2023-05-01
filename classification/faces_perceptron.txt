@@ -1,0 +1,78 @@
+Doing classification
+--------------------
+data:		digits
+classifier:		perceptron
+using enhanced features?:	False
+training set size:	150
+Extracting features...
+Sampling 5 iterations on 10.0%...
+numBatch is 15
+Mean Accuracy of 10.0%: 0.362
+Standard Deviation of 10.0%: 0.103227903205
+
+
+
+Sampling 5 iterations on 20.0%...
+numBatch is 30
+Mean Accuracy of 20.0%: 0.538
+Standard Deviation of 20.0%: 0.0183303027798
+
+
+
+Sampling 5 iterations on 30.0%...
+numBatch is 45
+Mean Accuracy of 30.0%: 0.572
+Standard Deviation of 30.0%: 0.0146969384567
+
+
+
+Sampling 5 iterations on 40.0%...
+numBatch is 60
+Mean Accuracy of 40.0%: 0.622
+Standard Deviation of 40.0%: 0.0292574776767
+
+
+
+Sampling 5 iterations on 50.0%...
+numBatch is 75
+Mean Accuracy of 50.0%: 0.642
+Standard Deviation of 50.0%: 0.0331058907145
+
+
+
+Sampling 5 iterations on 60.0%...
+numBatch is 90
+Mean Accuracy of 60.0%: 0.652
+Standard Deviation of 60.0%: 0.00748331477355
+
+
+
+Sampling 5 iterations on 70.0%...
+numBatch is 105
+Mean Accuracy of 70.0%: 0.66
+Standard Deviation of 70.0%: 0.0
+
+
+
+Sampling 5 iterations on 80.0%...
+numBatch is 120
+Mean Accuracy of 80.0%: 0.66
+Standard Deviation of 80.0%: 0.0
+
+
+
+Sampling 5 iterations on 90.0%...
+numBatch is 135
+Mean Accuracy of 90.0%: 0.66
+Standard Deviation of 90.0%: 0.0
+
+
+
+Sampling 5 iterations on 100%...
+numBatch is 150
+Mean Accuracy of 100%: 0.66
+Standard Deviation of 100%: 0.0
+
+
+
+Training time 63.907433033 | Number of iterations 5
