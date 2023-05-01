@@ -402,7 +402,7 @@ def sampling(args, options):
     allIndices = list(range(numTraining))
 
     for iteration in range(iterations):
-      print "Training #{} iteration".format(iteration)
+      # print "Training #{} iteration".format(iteration)
       
       indices = random.sample(allIndices, numBatch)
       trainingBatchData = []
@@ -422,7 +422,7 @@ def sampling(args, options):
       correct = [guesses[i] == testLabels[i] for i in range(len(testLabels))].count(True)
       # record accuracy
       accuracy.append(correct / len(testLabels))
-      print str(correct), ("correct out of " + str(len(testLabels)) + " (%.1f%%).") % (100.0 * correct / len(testLabels))
+      # print str(correct), ("correct out of " + str(len(testLabels)) + " (%.1f%%).") % (100.0 * correct / len(testLabels))
       # analysis(classifier, guesses, testLabels, testData, rawTestData, printImage)
       
       # do odds ratio computation if specified at command line
