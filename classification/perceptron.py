@@ -44,19 +44,20 @@ class PerceptronClassifier:
     self.features = trainingData[0].keys() # could be useful later
     # DO NOT ZERO OUT YOUR WEIGHTS BEFORE STARTING TRAINING, OR
     # THE AUTOGRADER WILL LIKELY DEDUCT POINTS.
-    
-    for i in range(len(trainingData)):
-        guessScores = util.Counter() #sets up a counter for each label to place scores for each label
-        for l in self.legalLabels:
-          #counter implements multiplication of entire matrix/vector for us
-          guessScores[l] = trainingData[i] * self.weights[l] #calculates dot product of weight and feature vector, which is the score and stores it in counter
-        guess = guessScores.argMax() #sets guess to the label with the highest score
-        answer = trainingLabels[i] #finds answer from training labels
-        if answer != guess:
-          #counter implements adding and subtracting entire matrix for us
-          self.weights[answer] += trainingData[i] #adjusts weights if answer
-          self.weights[guess] -= trainingData[i]  #is not correct by +/- feature value (0 or 1)
-    #util.raiseNotDefined()
+    for iteration in range(self.max_iterations):
+      # print "Starting iteration ", iteration, "..." 
+      for i in range(len(trainingData)):
+          guessScores = util.Counter() #sets up a counter for each label to place scores for each label
+          for l in self.legalLabels:
+            #counter implements multiplication of entire matrix/vector for us
+            guessScores[l] = trainingData[i] * self.weights[l] #calculates dot product of weight and feature vector, which is the score and stores it in counter
+          guess = guessScores.argMax() #sets guess to the label with the highest score
+          answer = trainingLabels[i] #finds answer from training labels
+          if answer != guess:
+            #counter implements adding and subtracting entire matrix for us
+            self.weights[answer] += trainingData[i] #adjusts weights if answer
+            self.weights[guess] -= trainingData[i]  #is not correct by +/- feature value (0 or 1)
+      #util.raiseNotDefined()
     
   def classify(self, data ):
     """
