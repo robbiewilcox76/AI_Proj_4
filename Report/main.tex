@@ -1,0 +1,73 @@
+\documentclass{article}
+\newenvironment{tightcenter}{%
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
+  \begin{center}
+}{%
+  \end{center}
+}
+
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+%=====================================================
+% Add PACKAGES Here (You typically would not need to):
+%=====================================================
+
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{subcaption}
+\usepackage{graphicx} % Required for inserting images
+\begin{filecontents*}{file.txt}
+first line
+second line
+third line
+\end{filecontents*}
+\usepackage{listings}
+
+\title{AI Project}
+\author{Fulton III Wilcox, Daniel Teytel, Long Tran}
+\date{May 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\begin{enumerate}
+    \item[] In the focus of classifying digits and faces, we implemented Naive Bayes, Perceptron and [3rd algo] methods.
+\end{enumerate}
+
+\section{Observations}
+\begin{enumerate}
+    \item[] Method: by letting the classifier train randomly parts of the data \[[10\%, 20\%, 30\%, 40\%, 50\%, 60\%, 70\%, 80\%, 90\%, 100\%]\]with number of n times - we call it n iteration for each part of the data, we record the time and and accuracy rate, standard deviation for each algorithm.
+
+    \item[] Comparison between digit classifying:
+\end{enumerate}
+
+\lstinputlisting[caption=digit\_naiveBayes.txt]{data/digit_naiveBayes.txt}
+
+\lstinputlisting[caption=digit\_perceptron.txt]{data/digit_perceptron.txt}
+
+\lstinputlisting[caption=faces\_naiveBayes.txt]{data/faces_naiveBayes.txt}
+
+\lstinputlisting[caption=faces\_perceptron.txt]{data/faces_perceptron.txt}
+
+\textbf{Observation \#1: Digit classifying}
+The running time of Perceptron toke nearly 23 times slower than Naive Bayes!!! In terms of accuracy and standard deviation, Naive Bayes showed that there was a steady increase trend in accuracy. However, the increases were small the accuracy started to converge as the standard deviation converges to 0.0 at the final sampling with 100\% of the data.
+
+In the mean time, Perceptron showed higher accuracy with 86\% and also showed small improvements on bigger training data. However, the changes were not significant enough to form a conclusion, and the standard deviation converged to 0.0 as the size of training data increases but need more samplings to jump to conclusion if standard deviation converges.
+
+\textbf{Observation \#2: Faces classifying}
+The running time of Perceptron took more than 6 times slower than Naive Bayes method. However, Perceptron had slightly better results than Naive Bayes - 85\% vs 84\%. Both methods obtain convergence in standard deviation close to 0.0
+
+\section{Explanation}
+Through the above observations, we can conclude that Perceptron takes more time to train the model (some times excessively large) but gives higher results. The reason why Perceptron takes longer time to train the model is that for each datum trained by the model, it needs iterating through the datum multiple times to self-adjust their weights for better result. Therefore, the time-accuracy constraints of the method is proportional and gives better rewards if we give it enough time to train.
+
+\end{document}
