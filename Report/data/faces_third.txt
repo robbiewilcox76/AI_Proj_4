@@ -1,0 +1,76 @@
+Doing classification
+--------------------
+data:		faces
+classifier:		Gradient Ascent inspired algorithm
+using enhanced features?:	False
+training set size:	5000
+Extracting features...
+Sampling 5 iterations on 10.0%...
+numBatch is 45
+Mean Accuracy of 10.0%: 0.6054421768707483
+Standard Deviation of 10.0%: 0.0934665715644
+
+
+
+Sampling 5 iterations on 20.0%...
+numBatch is 90
+Mean Accuracy of 20.0%: 0.6054421768707483
+Standard Deviation of 20.0%: 0.020591260282
+
+
+
+Sampling 5 iterations on 30.0%...
+numBatch is 135
+Mean Accuracy of 30.0%: 0.6054421768707483
+Standard Deviation of 30.0%: 0.0430813184571
+
+
+
+Sampling 5 iterations on 40.0%...
+numBatch is 180
+Mean Accuracy of 40.0%: 0.6054421768707483
+Standard Deviation of 40.0%: 0.0
+
+
+
+Sampling 5 iterations on 50.0%...
+numBatch is 225
+Mean Accuracy of 50.0%: 0.6054421768707483
+Standard Deviation of 50.0%: 0.0
+
+
+
+Sampling 5 iterations on 60.0%...
+numBatch is 270
+Mean Accuracy of 60.0%: 0.6054421768707483
+Standard Deviation of 60.0%: 0.0
+
+
+
+Sampling 5 iterations on 70.0%...
+numBatch is 315
+Mean Accuracy of 70.0%: 0.6054421768707483
+Standard Deviation of 70.0%: 0.0
+
+
+
+Sampling 5 iterations on 80.0%...
+numBatch is 360
+Mean Accuracy of 80.0%: 0.6054421768707483
+Standard Deviation of 50.0%: 0.0
+
+
+
+Sampling 5 iterations on 90.0%...
+numBatch is 405
+Mean Accuracy of 90.0%: 0.6054421768707483
+Standard Deviation of 90.0%: 0.0
+
+
+
+Sampling 5 iterations on 100.0%...
+numBatch is 451
+Mean Accuracy of 100.0%: 0.6054421768707483
+Standard Deviation of 100.0%: 0.0
+
+Training time 776.806903 | Number of iterations 5

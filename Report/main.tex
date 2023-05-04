@@ -41,7 +41,7 @@ third line
 
 \section{Introduction}
 \begin{enumerate}
-    \item[] In the focus of classifying digits and faces, we implemented Naive Bayes, Perceptron and [3rd algo] methods.
+    \item[] In the focus of classifying digits and faces, we implemented Naive Bayes, Perceptron and a third algorithm inspired by gradient ascent and approved by Professor Boularias.
 \end{enumerate}
 
 \section{Observations}
@@ -55,17 +55,23 @@ third line
 
 \lstinputlisting[caption=digit\_perceptron.txt]{data/digit_perceptron.txt}
 
+\lstinputlisting[caption=digit\_third.txt]{data/digit_third.txt}
+
 \lstinputlisting[caption=faces\_naiveBayes.txt]{data/faces_naiveBayes.txt}
 
 \lstinputlisting[caption=faces\_perceptron.txt]{data/faces_perceptron.txt}
+
+\lstinputlisting[caption=faces\_third.txt]{data/faces_third.txt}
 
 \textbf{Observation \#1: Digit classifying}
 The running time of Perceptron toke nearly 23 times slower than Naive Bayes!!! In terms of accuracy and standard deviation, Naive Bayes showed that there was a steady increase trend in accuracy. However, the increases were small the accuracy started to converge as the standard deviation converges to 0.0 at the final sampling with 100\% of the data.
 
 In the mean time, Perceptron showed higher accuracy with 86\% and also showed small improvements on bigger training data. However, the changes were not significant enough to form a conclusion, and the standard deviation converged to 0.0 as the size of training data increases but need more samplings to jump to conclusion if standard deviation converges.
 
+In contrast to Perceptron and Naive Bayes, The Gradient Ascent inspired algorithm had an average accuracy of 70\% and took significantly longer to run than the others. 
+
 \textbf{Observation \#2: Faces classifying}
-The running time of Perceptron took more than 6 times slower than Naive Bayes method. However, Perceptron had slightly better results than Naive Bayes - 85\% vs 84\%. Both methods obtain convergence in standard deviation close to 0.0
+The running time of Perceptron took more than 6 times slower than Naive Bayes method. However, Perceptron had slightly better results than Naive Bayes - 85\% vs 84\%. The third Gradient Ascent inspired algorithm took far longer than both the other algorithms, and consistently converged to an accuracy of 60\% regardless of sample size. This is likely resultant from the fact that significantly less training data was available for faces, and the third algorithm has shown decreased accuracy when given less data to train from. supporting this is the fact that the accuracy of face classification is approximately comparable to the accuracy of digit classification when only given 500 examples to train from, though more tests are needed before confirming that this hypothesis is accurate. All three methods obtain convergence in standard deviation close to 0.0
 
 \section{Explanation}
 Through the above observations, we can conclude that Perceptron takes more time to train the model (some times excessively large) but gives higher results. The reason why Perceptron takes longer time to train the model is that for each datum trained by the model, it needs iterating through the datum multiple times to self-adjust their weights for better result. Therefore, the time-accuracy constraints of the method is proportional and gives better rewards if we give it enough time to train.

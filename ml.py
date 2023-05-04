@@ -30,7 +30,7 @@ class ml:
     def readnexttag(file):
         k=file.readline()
         return k
-    def train(seed):
+    def train(seed,samplesize):
         import random
         random.seed(seed)
         predictrate=0
@@ -49,16 +49,17 @@ class ml:
         # for i in range(0,9):
         # while(predictrate<.7):
         import copy
-        while(predictrate<.72 and iteration<=2000):
+        while(predictrate<.72 and iteration<=500):
             predictrate1=predictrate
             predictrate=0
             
             weights1=copy.deepcopy(weights)
-            print ("starting iteration:", iteration)
+            if iteration%100==0:
+                print ("starting iteration:", iteration)
 
             if(iteration==0):
 
-                while k!="": 
+                while imageno<=samplesize:# k!="": 
                     if imageno!=0:
                         k=ml.readnextimage(testfile)
                         if k!="":
@@ -199,6 +200,7 @@ def test(weights):
     # print(predictrate)
     predictrate=predictrate/imageno
     print("new predictrate for identifying digits is: ",predictrate)
+    return predictrate
 class mlface:
     def readnextimage(file):
         n=file.readline()
@@ -222,9 +224,10 @@ class mlface:
             # print(l)
         return k
     def readnexttag(file):
+
         k=file.readline()
         return k
-    def trainface(seed):
+    def trainface(seed, samplesize):
         import random
         random.seed(seed)
         predictrate=0
@@ -244,16 +247,17 @@ class mlface:
         # for i in range(0,9):
         # while(predictrate<.7):
         import copy
-        while(predictrate<.72 and iteration<=2000):
+        while(predictrate<.72 and iteration<=1000):
             predictrate1=predictrate
             predictrate=0
             
             weights1=copy.deepcopy(weights)
-            print ("starting iteration:", iteration)
+            if iteration%100==0:
+                print ("starting iteration:", iteration)
 
             if(iteration==0):
 
-                while k!="": 
+                while imageno<=samplesize:#k!="": 
                     if imageno!=0:
                         k=mlface.readnextimage(testfile)
                         if k!="":
@@ -265,11 +269,11 @@ class mlface:
                         break
                     # print(k)
                     # print (tag)
-                    # for j in range(0,9):
-                    #     for i in range(0,len(k)):
-                            # weights[j][i]+=random.uniform(0.0,1.0)
-                            # while weights[j][i]==0:
-                            #     weights[j][i]+=random.uniform(0.0,1.0)
+                    for j in range(0,2):
+                        for i in range(0,len(k)):
+                            weights[j][i]+=random.uniform(0.0,1.0)
+                            while weights[j][i]==0:
+                                weights[j][i]+=random.uniform(0.0,1.0)
                     for i in range(0,2):
                         for j in range(0,len(k)):
                             # print(i)
@@ -300,7 +304,7 @@ class mlface:
                     for j in range(0,2):
                         # print(weights[j][i])
                         if(random.uniform(0.0,1.0)>weights[j][i]):
-                            weights[j][i]=weights[j][i]*(.92)
+                            weights[j][i]=weights[j][i]*(71.5)
                         sum+=weights[j][i]
                         # print(weights[j][i])
                     for j in range(0,2):
@@ -399,9 +403,54 @@ def testface(weights):
     # print(predictrate)
     predictrate=predictrate/imageno
     print("new predictrate for identifying faces is: ",predictrate)
+    return predictrate
+# samplesize=0.5 
+# facerates=[]
+# digitsrates=[]
+# stdface=[]
+# stddigit=[]
+# while samplesize<1.0:
+#     facerate=0
+#     digitrate=0
+#     faces=[]
+#     digits=[]
+#     for i in range(0,5):
+# weights=mlface.trainface(1, 451)
+# face=testface(weights)
+        # faces.append(face)
+        # facerate+=face
+import time
+stime=time.time()
+weights=ml.train(1, 1000)
+digit=test(weights)
+etime=time.time()
+print(stime-etime)
+        # digits.append(digit)
+        # digitrate+=digit
+#     digitrate=digitrate/5
+#     facerate=facerate/5
+#     sumface=0
+#     for i in range(0,len(faces)):
+#         sumface+=facerate-faces[i]
+#     stdsface=sumface/4
+#     sumdigit=0
+#     for i in range(0,len(faces)):
+#         sumdigit+=digitrate-digits[i]
+#     stdsdigit=sumdigit/4
+#     print("prediction rate after 5 samples of faces:",facerate)
+#     print("prediction rate after 5 samples of digits:",digitrate)
+#     print("standard deviation rate after 5 samples of digits:",stdsdigit)
+#     print("standard deviation rate after 5 samples of faces:", stdsface)
+#     samplesize+=0.1
+#     facerates.append(facerate)
+#     digitsrates.append(digitrate)
+#     stdface.append(stdsface)
+#     stddigit.append(stdsdigit)
 
-weights=mlface.trainface(1)
-testface(weights)
-weights=ml.train(1)
-test(weights)
+# for i in range(0,11):
+#     print("face rate for ", i*.1, "is: ", facerates[i])
+#     print("standard deviation rate for ", i*.1, "is: ", stdface[i])
+# for i in range(0,11):
+#     print("digit rate for ", i*.1, "is: ", digitsrates[i])
+#     print("digit standard deviation rate for ", i*.1, "is: ", stddigit[i])
 

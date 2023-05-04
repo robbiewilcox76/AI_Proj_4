@@ -1,0 +1,69 @@
+Doing classification
+--------------------
+data:		digits
+classifier:		Gradient Ascent inspired algorithm
+using enhanced features?:	False
+training set size:	5000
+Extracting features...
+Sampling 5 iterations on 10.0%...
+numBatch is 500
+Mean Accuracy of 10.0%: 0.6613386613386614
+Standard Deviation of 10.0%: -6.938893903907228e-17
+
+
+
+Sampling 5 iterations on 20.0%...
+numBatch is 1000
+Mean Accuracy of 20.0%: 0.6913086913086913
+Standard Deviation of 20.0%: -6.938893903907228e-17
+
+
+
+Sampling 5 iterations on 30.0%...
+numBatch is 1500
+Mean Accuracy of 30.0%: 0.6633366633366633
+Standard Deviation of 30.0%: 6.938893903907228e-17
+
+
+
+Sampling 5 iterations on 40.0%...
+numBatch is 2000
+Mean Accuracy of 40.0%: 0.7232767232767233
+Standard Deviation of 40.0%: 0
+
+
+
+Sampling 5 iterations on 50.0%...
+numBatch is 2500
+Mean Accuracy of 40.0%: 0.7232767232767233
+Standard Deviation of 40.0%: 0
+
+
+
+Sampling 5 iterations on 60.0%...
+numBatch is 3000
+Mean Accuracy of 40.0%: 0.7102897102897103
+Standard Deviation of 40.0%: 0
+
+
+
+Sampling 5 iterations on 70.0%...
+numBatch is 3500
+Mean Accuracy of 40.0%: 0.7102897102897103
+Standard Deviation of 40.0%: 0
+
+
+
+Sampling 5 iterations on 80.0%...
+numBatch is 4000
+Mean Accuracy of 40.0%: 0.7042957042957043
+Standard Deviation of 40.0%: 0
+
+
+
+Sampling 5 iterations on 90.0%...
+numBatch is 4500
+Mean Accuracy of 40.0%: 0.7202797202797203
+Standard Deviation of 40.0%: 0
+
+ Training time 388.4034514427185 | Number of iterations 5
