@@ -70,9 +70,12 @@ In the mean time, Perceptron showed higher accuracy with 86\% and also showed sm
 
 In contrast to Perceptron and Naive Bayes, The Gradient Ascent inspired algorithm had an average accuracy of 70\% and took significantly longer to run than the others. Due to the significant amount of time each trial takes to run, a true measure of the time to run the algorithm at each of the 10 sampling percentages could not be taken, however, this time was estimated by multiplying the trial time of one trial by 10. 
 
+
 \textbf{Observation \#2: Faces classifying}
 The running time of Perceptron took more than 6 times slower than Naive Bayes method. However, Perceptron had slightly better results than Naive Bayes - 85\% vs 84\%. The third Gradient Ascent inspired algorithm took far longer than both the other algorithms, and consistently converged to an accuracy of 60\% regardless of sample size. This is likely resultant from the fact that significantly less training data was available for faces, and the third algorithm has shown decreased accuracy when given less data to train from. supporting this is the fact that the accuracy of face classification is approximately comparable to the accuracy of digit classification when only given 500 examples to train from, though more tests are needed before confirming that this hypothesis is accurate. All three methods obtain convergence in standard deviation close to 0.0
 
+\textbf{Observation \#3: Time}
+the runtime of each trial and for each problem was gathered by combining the time it took to run one test with each of the 10 data set sizes. The time is measured in seconds.
 \section{Explanation}
 Through the above observations, we can conclude that Perceptron takes more time to train the model (some times excessively large) but gives higher results. The reason why Perceptron takes longer time to train the model is that for each datum trained by the model, it needs iterating through the datum multiple times to self-adjust their weights for better result. Therefore, the time-accuracy constraints of the method is proportional and gives better rewards if we give it enough time to train.
 
