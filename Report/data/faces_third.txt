@@ -73,4 +73,4 @@ numBatch is 451
 Mean Accuracy of 100.0%: 0.6054421768707483
 Standard Deviation of 100.0%: 0.0
 
-Training time 776.806903 | Number of iterations 5
+Training time 7768.06903 | Number of iterations 5

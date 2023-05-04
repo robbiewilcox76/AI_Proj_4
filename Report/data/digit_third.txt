@@ -66,4 +66,4 @@ numBatch is 4500
 Mean Accuracy of 40.0%: 0.7202797202797203
 Standard Deviation of 40.0%: 0
 
- Training time 388.4034514427185 | Number of iterations 5
+ Training time 3884.034514427185 | Number of iterations 5
